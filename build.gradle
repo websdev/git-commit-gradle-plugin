@@ -1,0 +1,34 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+	}
+}
+
+group = 'com.webs.gradle'
+version = '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+apply plugin: 'com.jfrog.bintray'
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	compile gradleApi()
+	compile("org.ajoberstar:gradle-git:1.1.0")
+}
+
+bintray {
+	user = "${BINTRAY_USER}"
+	key = "${BINTRAY_KEY}"
+	pkg {
+		repo = 'bintray-wlmoore-webs-gradle-plugins'
+		name = 'generate-git-info'
+		licenses = ['Apache-2.0']
+		vcsUrl = 'https://github.com/websdev/git-commit-gradle-plugin.git'
+	}
+}
