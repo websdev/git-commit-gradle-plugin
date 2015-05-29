@@ -19,7 +19,9 @@ repositories {
 
 dependencies {
 	compile gradleApi()
-	compile("org.ajoberstar:gradle-git:1.1.0")
+	compile group: 'org.ajoberstar', name: 'gradle-git', version: '1.1.0'
+	compile group: 'joda-time', name: 'joda-time', version: '2.7'
+
 }
 
 bintray {
