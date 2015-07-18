@@ -33,14 +33,8 @@ to include that repository in your ```repositories``` section)
 So you want to publish?  Make your edits, submit your PR, then publish as
 appropriate:
 
-For snapshot releases:
-
-```
-gradle publishMavenJavaPublicationToWebsNexus-SnapshotsRepository
-```
-
-Once everything is kosher, publish a new release:
-
-```
-gradle publishMavenJavaPublicationToWebsNexus-ReleasesRepository
-```
+* Export your environment variables to sync to bintray
+  * ```export BINTRAY_USER=<user>```
+  * ```export BINTRAY_KEY=<key>```
+* Run the gradle publish task
+  * ```./gradlew bintrayUpload```
