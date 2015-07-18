@@ -12,6 +12,8 @@ version = '1.1.0'
 
 apply plugin: 'groovy'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+
 
 repositories {
 	jcenter()
@@ -24,13 +26,28 @@ dependencies {
 
 }
 
+publishing {
+	publications {
+		publication(MavenPublication) {
+			from components.java
+		}
+	}
+}
+
 bintray {
-	user = "${BINTRAY_USER}"
-	key = "${BINTRAY_KEY}"
+	user = System.getenv('BINTRAY_USER')
+	key = System.getenv('BINTRAY_KEY')
+	publications = ['publication']
 	pkg {
-		repo = 'bintray-wlmoore-webs-gradle-plugins'
+		repo = 'gradle-plugins'
 		name = 'generate-git-info'
 		licenses = ['Apache-2.0']
+		userOrg = 'wlmoore-webs'
 		vcsUrl = 'https://github.com/websdev/git-commit-gradle-plugin.git'
+	}
+	version {
+		name = project.version
+		released = new Date()
+		vcsTag = project.version
 	}
 }
