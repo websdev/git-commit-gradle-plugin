@@ -44,10 +44,10 @@ bintray {
 		licenses = ['Apache-2.0']
 		userOrg = 'wlmoore-webs'
 		vcsUrl = 'https://github.com/websdev/git-commit-gradle-plugin.git'
-	}
-	version {
-		name = project.version
-		released = new Date()
-		vcsTag = project.version
+		version {
+			name = "${project.name}-${project.version}"
+			released = new Date()
+			vcsTag = "${project.version}"
+		}
 	}
 }
