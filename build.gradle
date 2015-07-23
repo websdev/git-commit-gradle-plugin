@@ -8,7 +8,7 @@ buildscript {
 }
 
 group = 'com.webs.gradle'
-version = '1.1.0'
+version = '1.1.1'
 
 apply plugin: 'groovy'
 apply plugin: 'com.jfrog.bintray'
@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
 	compile gradleApi()
-	compile group: 'org.ajoberstar', name: 'gradle-git', version: '1.1.0'
+	compile group: 'org.ajoberstar', name: 'gradle-git', version: '1.2.0'
 	compile group: 'joda-time', name: 'joda-time', version: '2.7'
 
 }

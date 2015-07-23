@@ -15,7 +15,7 @@ class GitPropertiesTask extends DefaultTask {
 	@TaskAction
 	void generate() {
 		// note: deprecated, but the examples still use this syntax.  Not sure what to do here?
-		Grgit repo = Grgit.open(project.file('.'))
+		Grgit repo = Grgit.open(dir: '.')
 		File dir = new File(project.buildDir, "resources/main")
 		if (!dir.exists()) dir.mkdirs()
 
